@@ -4,7 +4,7 @@
 function maxScore(scrores) {
     let maxScore = scrores(0).score;
     let scoreName = scrores(0).name;
-    for (i = 0; i < scrores.length; i++) {
+    for (let i = 0; i < scrores.length; i++) {
         if (scrores(i).score < scrores(i + 1).score) {
             maxScore = scrores(i + 1).score;
             scoreName = scrores(i + 1).name;
@@ -12,4 +12,5 @@ function maxScore(scrores) {
     }
     return scoreName;
 }
+
 

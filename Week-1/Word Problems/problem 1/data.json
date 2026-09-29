@@ -1,0 +1,44 @@
+{
+    "students": [
+        {
+            "name": "Ali",
+            "score": 85
+        },
+        {
+            "name": "Ayesha",
+            "score": 92
+        },
+        {
+            "name": "Hamza",
+            "score": 78
+        },
+        {
+            "name": "Sara",
+            "score": 95
+        },
+        {
+            "name": "Usman",
+            "score": 67
+        },
+        {
+            "name": "Hina",
+            "score": 88
+        },
+        {
+            "name": "Bilal",
+            "score": 73
+        },
+        {
+            "name": "Fatima",
+            "score": 91
+        },
+        {
+            "name": "Ahmed",
+            "score": 82
+        },
+        {
+            "name": "Zainab",
+            "score": 76
+        }
+    ]
+}

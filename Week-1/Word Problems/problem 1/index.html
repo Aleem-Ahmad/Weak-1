@@ -1,0 +1,166 @@
+<!-- Three students scored [80, 92, 75], given as [{name, score}].
+     Write a function that returns the name of the highest scorer. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Problem 1</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            margin-top: 20%;
+            color: chocolate;
+        }
+
+        pre {
+            color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Word Problem 1</h2>
+
+        <pre>
+            <i>
+            Three students scored [80, 92, 75], given as [{name, score}].
+            Write a function that returns the name of the highest scorer.
+            </i>
+        </pre>
+    </header>
+
+    <main>
+
+        <section id="data">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+
+                <tbody id="table-body">
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <section id="res">
+            <span id="result"></span>
+        </section>
+
+    </main>
+
+
+    <!-- Here Object is under Practice -->
+    <!-- I'll try to use [Destructuring] to handle this Problem -->
+
+    <script>
+
+        // DOM Gameplay Now
+
+        function maxScorerNameFinder(scores) {
+            let maxScore = scores[0].score;
+            let scorerName = scores[0].name;
+
+            for (let i = 1; i < scores.length - 1; i++) {
+
+                if (scores[i].score > maxScore) {
+
+                    maxScore = scores[i].score;
+
+                    scorerName = scores[i].name;
+
+                }
+
+            }
+            let result = document.getElementById("result");
+            result.innerText = `The Highest Scorer is: ${scorerName}`;
+            console.log(`Name: ${result.innerText}`);
+        }
+        // Learning fetch API
+
+
+        // fetch API syntax
+        // fetch(file)
+        //     .then(function (response) {
+        //         return response.text();
+        //     })
+        //     .then(function (data) {
+        //         myDisplayer(data);
+        //     });
+
+        fetch("data.json")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+
+                console.log(data);
+
+                let table = document.getElementById("table-body");
+
+                // data.students is the array
+                data.students.forEach(element => {
+
+                    let tr = document.createElement("tr");
+
+                    let td1 = document.createElement("td");
+                    let td2 = document.createElement("td");
+
+                    td1.innerText = element.name;
+                    td2.innerText = element.score;
+
+                    // WRONG:
+                    // table.appendChild("tr");
+                    //
+                    // "tr" in quotes is just a string.
+                    // appendChild() needs the actual DOM element.
+                    //
+                    // CORRECT:
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+
+                    table.appendChild(tr);
+                });
+                maxScorerNameFinder(data.students);
+            })
+            .catch(function (error) {
+                console.error("Error loading data:", error);
+            });
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
+```

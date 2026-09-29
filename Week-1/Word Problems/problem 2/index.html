@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Maanger</title>
+    <link rel="icon"
+        href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQiIGhlaWdodD0iMTQ0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZhNzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtY2FuZHkgcHJldmlldy1pY29uIj48cGF0aCBkPSJNMTAgN3YxMC45Ii8+PHBhdGggZD0iTTE0IDYuMVYxNyIvPjxwYXRoIGQ9Ik0xNiA3VjNhMSAxIDAgMCAxIDEuNzA3LS43MDcgMi41IDIuNSAwIDAgMCAyLjE1Mi43MTcgMSAxIDAgMCAxIDEuMTMxIDEuMTMxIDIuNSAyLjUgMCAwIDAgLjcxNyAyLjE1MkExIDEgMCAwIDEgMjEgOGgtNCIvPjxwYXRoIGQ9Ik0xNi41MzYgNy40NjVhNSA1IDAgMCAwLTcuMDcyIDBsLTIgMmE1IDUgMCAwIDAgMCA3LjA3IDUgNSAwIDAgMCA3LjA3MiAwbDItMmE1IDUgMCAwIDAgMC03LjA3Ii8+PHBhdGggZD0iTTggMTd2NGExIDEgMCAwIDEtMS43MDcuNzA3IDIuNSAyLjUgMCAwIDAtMi4xNTItLjcxNyAxIDEgMCAwIDEtMS4xMzEtMS4xMzEgMi41IDIuNSAwIDAgMC0uNzE3LTIuMTUyQTEgMSAwIDAgMSAzIDE2aDQiLz48L3N2Zz4="
+        type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: orangered;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            color: rgb(180, 10, 43);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+            width: 250px;
+        }
+
+        #left {
+            margin-right: 20px;
+        }
+
+        #right {
+            margin-left: 20px;
+        }
+
+        legend {
+            color: orangered;
+            font-size: 16px;
+            font-weight: bold;
+
+        }
+
+        input {
+            outline: 2px orangered;
+            margin: 10px;
+            height: 25px;
+            border-radius: 10px;
+            padding: 5px;
+            color: orangered;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color: orangered;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Candy Maanger</h2>
+        <pre>
+            A teacher has 23 candies to split evenly among 5 students.
+            Write a function that returns how many candies each student gets, and how many are left over.
+        </pre>
+    </header>
+
+    <main>
+        <section class="input">
+            <legend>Get the Inputs</legend>
+            Enter number of candies: <br>
+            <input type="number" id="inputcandy"><br>
+            Enter number of students: <br>
+            <input type="number" id="inputstudent"><br>
+            <button id="btn">submit</button>
+
+        </section>
+        <section id="left">
+            <h3>Each student gets</h3>
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQiIGhlaWdodD0iMTQ0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZhNzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtY2FuZHkgcHJldmlldy1pY29uIj48cGF0aCBkPSJNMTAgN3YxMC45Ii8+PHBhdGggZD0iTTE0IDYuMVYxNyIvPjxwYXRoIGQ9Ik0xNiA3VjNhMSAxIDAgMCAxIDEuNzA3LS43MDcgMi41IDIuNSAwIDAgMCAyLjE1Mi43MTcgMSAxIDAgMCAxIDEuMTMxIDEuMTMxIDIuNSAyLjUgMCAwIDAgLjcxNyAyLjE1MkExIDEgMCAwIDEgMjEgOGgtNCIvPjxwYXRoIGQ9Ik0xNi41MzYgNy40NjVhNSA1IDAgMCAwLTcuMDcyIDBsLTIgMmE1IDUgMCAwIDAgMCA3LjA3IDUgNSAwIDAgMCA3LjA3MiAwbDItMmE1IDUgMCAwIDAgMC03LjA3Ii8+PHBhdGggZD0iTTggMTd2NGExIDEgMCAwIDEtMS43MDcuNzA3IDIuNSAyLjUgMCAwIDAtMi4xNTItLjcxNyAxIDEgMCAwIDEtMS4xMzEtMS4xMzEgMi41IDIuNSAwIDAgMC0uNzE3LTIuMTUyQTEgMSAwIDAgMSAzIDE2aDQiLz48L3N2Zz4="
+                alt="candy">
+            <span id="candy-distributed"></span>
+        </section>
+
+        <section id="right">
+            <h3>Candies Left</h3>
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQiIGhlaWdodD0iMTQ0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZhNzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtY2FuZHkgcHJldmlldy1pY29uIj48cGF0aCBkPSJNMTAgN3YxMC45Ii8+PHBhdGggZD0iTTE0IDYuMVYxNyIvPjxwYXRoIGQ9Ik0xNiA3VjNhMSAxIDAgMCAxIDEuNzA3LS43MDcgMi41IDIuNSAwIDAgMCAyLjE1Mi43MTcgMSAxIDAgMCAxIDEuMTMxIDEuMTMxIDIuNSAyLjUgMCAwIDAgLjcxNyAyLjE1MkExIDEgMCAwIDEgMjEgOGgtNCIvPjxwYXRoIGQ9Ik0xNi41MzYgNy40NjVhNSA1IDAgMCAwLTcuMDcyIDBsLTIgMmE1IDUgMCAwIDAgMCA3LjA3IDUgNSAwIDAgMCA3LjA3MiAwbDItMmE1IDUgMCAwIDAgMC03LjA3Ii8+PHBhdGggZD0iTTggMTd2NGExIDEgMCAwIDEtMS43MDcuNzA3IDIuNSAyLjUgMCAwIDAtMi4xNTItLjcxNyAxIDEgMCAwIDEtMS4xMzEtMS4xMzEgMi41IDIuNSAwIDAgMC0uNzE3LTIuMTUyQTEgMSAwIDAgMSAzIDE2aDQiLz48L3N2Zz4="
+                alt="candy">
+            <span id="candy-left"></span>
+        </section>
+    </main>
+    <script>
+
+
+        document.getElementById("btn").addEventListener("click", function candyManager() {
+            let candy = document.getElementById("inputcandy").value;
+            let student = document.getElementById("inputstudent").value;
+            let candyLeft = candy % student;
+            let candyDistributed = candy - candyLeft;
+            let eachStudentCandyCount = candyDistributed / student;
+            document.getElementById("candy-distributed").textContent = eachStudentCandyCount;
+            document.getElementById("candy-left").textContent = candyLeft;
+        });
+
+    </script>
+</body>
+
+</html>

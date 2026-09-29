@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Punjab Cities Dropdown</title>
+
+    <style>
+        /* ===== CSS ===== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            width: 350px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            background: white;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Select a Punjab City</h2>
+
+        <label for="city">City</label>
+
+        <select id="city">
+            <option value="">-- Select City --</option>
+
+            <option value="Lahore">Lahore</option>
+            <option value="Faisalabad">Faisalabad</option>
+            <option value="Rawalpindi">Rawalpindi</option>
+            <option value="Multan">Multan</option>
+            <option value="Gujranwala">Gujranwala</option>
+            <option value="Sialkot">Sialkot</option>
+            <option value="Bahawalpur">Bahawalpur</option>
+            <option value="Sargodha">Sargodha</option>
+            <option value="Sheikhupura">Sheikhupura</option>
+            <option value="Jhelum">Jhelum</option>
+            <option value="Gujrat">Gujrat</option>
+            <option value="Okara">Okara</option>
+            <option value="Kasur">Kasur</option>
+            <option value="Sahiwal">Sahiwal</option>
+            <option value="Rahim Yar Khan">Rahim Yar Khan</option>
+            <option value="Dera Ghazi Khan">Dera Ghazi Khan</option>
+            <option value="Muzaffargarh">Muzaffargarh</option>
+            <option value="Mandi Bahauddin">Mandi Bahauddin</option>
+            <option value="Attock">Attock</option>
+            <option value="Chiniot">Chiniot</option>
+            <option value="Layyah">Layyah</option>
+            <option value="Bhakkar">Bhakkar</option>
+            <option value="Pakpattan">Pakpattan</option>
+            <option value="Vehari">Vehari</option>
+            <option value="Jhang">Jhang</option>
+            <option value="Hafizabad">Hafizabad</option>
+            <option value="Nankana Sahib">Nankana Sahib</option>
+            <option value="Toba Tek Singh">Toba Tek Singh</option>
+            <option value="Narowal">Narowal</option>
+            <option value="Lodhran">Lodhran</option>
+
+        </select>
+
+        <div id="result">
+            No city selected
+        </div>
+
+    </div>
+
+
+    <script>
+        // ===== JavaScript =====
+
+        // Get the dropdown element
+        const cityDropdown = document.getElementById("city");
+
+        // Get the result element
+        const result = document.getElementById("result");
+
+        // Run this function whenever the user changes the city
+        cityDropdown.addEventListener("change", function () {
+
+            // Get the selected city's value
+            const selectedCity = cityDropdown.value;
+
+            // Check whether a city was selected
+            if (selectedCity === "") {
+                result.textContent = "No city selected";
+            } else {
+                result.textContent = `You selected: ${selectedCity}`;
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>

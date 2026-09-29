@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+
+<body>
+    <h1>Timer</h1>
+    <p>A stopwatch or timer using JS setTimeOut and setInterval</p>
+    <div id="timer"></div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+
+    <script>
+
+        // Get the elements from the DOM
+        let timer = document.getElementById("timer");
+        let startBtn = document.getElementById("start");
+        let stopBtn = document.getElementById("stop");
+        let resetBtn = document.getElementById("reset");
+
+        // Set the initial time to 0
+        let time = 0;
+        let intervalId = null;
+
+        // Start the timer
+        function startTimer() {
+            intervalId = setInterval(() => {
+                time++;
+                timer.innerText = time;
+            }, 1000);
+        }
+
+        // Stop the timer
+        function stopTimer() {
+            clearInterval(intervalId);
+        }
+
+        // Reset the timer
+        function resetTimer() {
+            time = 0;
+            timer.innerText = time;
+        }
+
+        // Add event listeners to the buttons
+        startBtn.addEventListener("click", startTimer);
+        stopBtn.addEventListener("click", stopTimer);
+        resetBtn.addEventListener("click", resetTimer);
+
+    </script>
+</body>
+
+</html>

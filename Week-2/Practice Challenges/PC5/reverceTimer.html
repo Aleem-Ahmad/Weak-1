@@ -19,17 +19,47 @@
         <button id="r"> Reset</button>
 
         <script>
-            let time = 60;
-            let tiktik;
-            document.getElementById("p").addEventListener("click", () => {
+            let time = 3;
+            let tiktik = null;
+
+            let clock = document.getElementById("counterTime");
+            let p = document.getElementById("p");
+            let s = document.getElementById("s");
+            let r = document.getElementById("r");
+
+            tiktok = () => {
                 tiktik = setInterval(() => {
                     time--;
-                    document.getElementById("counterTime").innerText = time;
-                    if (time === 0) {
+                    clock.innerText = time;
+
+                    if (time == 0) {
                         clearInterval(tiktik);
+                        console.log("Timer stopped");
                     }
                 }, 1000);
-            });
+            }
+
+            p.addEventListener("click", tiktok);
+
+            stop = () => {
+                clearInterval(tiktik);
+                console.log("Timer stopped");
+            }
+
+            s.addEventListener("click", stop);
+
+            let reset = () => {
+                time = 0;
+                clearInterval(tiktik);
+                clock.innerText = time;
+            }
+
+            r.addEventListener("click", reset);
+
+
+
+
+
         </script>
     </header>
 </body>

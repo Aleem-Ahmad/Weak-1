@@ -1,0 +1,108 @@
+<!-- 1-add tittle
+     2-add favIcon
+     3-toogle password -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Challenges</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon"
+        href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlMDAwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jbGlwYm9hcmQtbGlzdCBwcmV2aWV3LWljb24iPjxyZWN0IHdpZHRoPSI4IiBoZWlnaHQ9IjQiIHg9IjgiIHk9IjIiIHJ4PSIxIiByeT0iMSIvPjxwYXRoIGQ9Ik0xNiA0aDJhMiAyIDAgMCAxIDIgMnYxNGEyIDIgMCAwIDEtMiAySDZhMiAyIDAgMCAxLTItMlY2YTIgMiAwIDAgMSAyLTJoMiIvPjxwYXRoIGQ9Ik0xMiAxMWg0Ii8+PHBhdGggZD0iTTEyIDE2aDQiLz48cGF0aCBkPSJNOCAxMWguMDEiLz48cGF0aCBkPSJNOCAxNmguMDEiLz48L3N2Zz4="
+        type="image/x-icon">
+</head>
+
+<body>
+
+    <span id="lights">
+        <span id="bulb"></span>
+        <span id="bulb"></span>
+        <span id="bulb"></span>
+    </span>
+
+    <header>
+
+        <h2>Practice <span id="headerContent">Challenges</span></h2>
+
+    </header>
+
+    <main>
+        <pre>
+            1-Dropdown menu you can also open with the keyboard
+            2-Show/hide password toggle
+            3-A popup window made with plain JS
+            4-An animation that triggers when you scroll
+            5-A stopwatch or timer
+            6-A search box that filters results live as you type
+            7-A card list where you can add and remove items
+        </pre>
+    </main>
+
+    <!-- password Toogle Code -->
+
+    <section id="passwordToogle">
+        <label id="pswdLabel" for="pswd">Enter your Password</label>
+
+        <div id="pswdInput">
+
+            <!-- A few HTML Validation Applied -->
+            <input type="password" name="pswd" id="pswd" required max="12" min="8">
+            <button id="tooglePswd">
+                <img id="toogleIcon"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkMjY5MWUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1leWUtb2ZmIHByZXZpZXctaWNvbiI+PHBhdGggZD0iTTEwLjczMyA1LjA3NmExMC43NDQgMTAuNzQ0IDAgMCAxIDExLjIwNSA2LjU3NSAxIDEgMCAwIDEgMCAuNjk2IDEwLjc0NyAxMC43NDcgMCAwIDEtMS40NDQgMi40OSIvPjxwYXRoIGQ9Ik0xNC4wODQgMTQuMTU4YTMgMyAwIDAgMS00LjI0Mi00LjI0MiIvPjxwYXRoIGQ9Ik0xNy40NzkgMTcuNDk5YTEwLjc1IDEwLjc1IDAgMCAxLTE1LjQxNy01LjE1MSAxIDEgMCAwIDEgMC0uNjk2IDEwLjc1IDEwLjc1IDAgMCAxIDQuNDQ2LTUuMTQzIi8+PHBhdGggZD0ibTIgMiAyMCAyMCIvPjwvc3ZnPg=="
+                    alt="toogleBtn">
+
+            </button>
+
+        </div>
+        <button id="pswdBtn">
+            <h3 id="unlockTxt">Un-Lock</h3>
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1sb2NrIHByZXZpZXctaWNvbiI+PHJlY3Qgd2lkdGg9IjE4IiBoZWlnaHQ9IjExIiB4PSIzIiB5PSIxMSIgcng9IjIiIHJ5PSIyIi8+PHBhdGggZD0iTTcgMTFWN2E1IDUgMCAwIDEgMTAgMHY0Ii8+PC9zdmc+"
+                alt="Submit Button">
+        </button>
+
+    </section>
+
+    <!-- card List add or remove cards mannualy -->
+    <!-- also search box that gives results live  -->
+
+    <section id="cardsection">
+        <div id="cards">
+
+        </div>
+
+        <div id="cardInputPopup" style="display: none;">
+
+            <form>
+                <fieldset id="feildsetCardInput">
+                    <legend>Wanna Adding card ??</legend>
+
+                    <label for="itemPic">Item Image : </label>
+                    <input id="itemPic" type="image"> <br>
+
+                    <label for="itemId">Item ID: </label>
+                    <input id="itemId" type="text"> <br>
+
+                    <label for="itemName">Item Name : </label>
+                    <input id="itemName" type="text"> <br>
+
+                    <label for="itemDesc">Item Descripton : </label>
+                    <input id="itemDesc" type="text"> <br>
+
+                    <button id="finalAddCard">Add Card</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <button id="addCard">Add Card</button>
+
+    </section>
+    
+    <script src="script.js"></script>
+
+</body>
+
+</html>

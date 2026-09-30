@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* header and main css */
+
+/* scroll triger animation */
+#lights {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+
+    display: flex;
+    gap: 10px;
+}
+#lights #bulb{
+    height: 8px;
+    width: 8px;
+    outline: 1px solid black;
+    border-radius: 50%;
+}
+
+@keyframes bulbGlow {
+
+    0%, 100% {
+        background-color: red;
+        box-shadow: 0 0 5px red;
+    }
+
+    25% {
+        background-color: yellow;
+        box-shadow: 0 0 10px yellow;
+    }
+
+    50% {
+        background-color: lime;
+        box-shadow: 0 0 10px lime;
+    }
+
+    75% {
+        background-color: cyan;
+        box-shadow: 0 0 10px cyan;
+    }
+}
+
+/* HeroPage or1st Oage Styles */
+header{
+    margin-top: 10vh;
+    font-size: 60px;
+    text-align: center;
+}
+main{
+    height: calc(100vh - 100px);
+    width: 100vw;
+}
+main pre{
+    text-decoration: dashed;
+    font-size: 32px;
+    margin-top: 7vh;
+}
+
+header h2{
+    font-weight: bolder;
+}
+
+#headerContent{
+    color: chocolate;
+    
+}
+
+/* rest of CSS baaaad ma  */
+
+
+/* yaha sa password toogle k liey styles */
+#passwordToogle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; 
+    height: 100vh;
+    width: 100vw;
+    outline: 2px sold chocolate;
+      
+}
+#pswdLabel{
+    font-weight: bold;
+    color: chocolate;
+}
+#pswdInput{
+    font-size: 32px;
+    height: 40px;
+    width: 350px;
+    outline: 2px solid chocolate;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#pswd{
+    background-color: none;
+    height: 85%;
+    width: 75%;
+    outline: none;
+    border: none;
+    padding: 3px;
+    font-weight: bold;
+    color: chocolate;
+}
+#tooglePswd{
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    margin-left: 5px;
+}
+
+
+#pswdBtn{
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    background-color: chocolate;
+    height: 38px;
+    width: 200px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+}
+
+#unlockTxt{
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* add card section */
+
+#cardsection{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    width: 100vw;
+    height: 100vh;
+}
+
+#cards{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#addCard {
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: chocolate;
+    /* position: fixed; */
+    height: 8vh;
+    width: 13vw;
+    bottom: 10px;
+    left: 50%;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+
+#cardInputPopup{
+    height: auto;
+    width: 40vw;
+    margin-top: 30px ;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#cardInputPopup label{
+    color: chocolate;
+}
+
+#cardInputPopup input{
+    color: chocolate;
+    outline: 2px chocolate;
+    border-radius: 20px;
+    border: none;
+    height: 30px;
+    width: 200px;
+}
+
+#feildsetCardInput{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px 10px 50px 10px;
+    outline: 2px dotted chocolate;
+    border: none;
+}
+
+#finalAddCard{
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: chocolate;
+    height: 6vh;
+    width: 10vw;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    margin-bottom: 10px;   
+}

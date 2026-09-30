@@ -40,11 +40,38 @@ function popupGen() {
     border-radius : 30px:
     display : block;
 `;
+
+    let timer = document.createElement("span");
+
+    let seconds = 5;
+
+    timer.textContent = seconds;
+
+    setInterval(function () {
+        seconds--;
+
+        timer.textContent = seconds;
+
+        if (seconds <= 0) {
+            clearInterval(interval);
+            timer.textContent = "Done!";
+        }
+    }, 1000);
+
+//     timer.style.cssText = `
+//     width: 10vw;
+//     height: 10vh;
+//     color: black;
+//     padding: 20px;
+// `;
+
+    popup.appendChild(span);
+
     passwordToogle.appendChild(popup);
 
     setTimeout(function () {
         popup.remove();
-    }, 2000)
+    }, 5000)
 }
 
 loginBtn.addEventListener("click", popupGen);
@@ -61,12 +88,58 @@ window.addEventListener("scroll", animate);
 
 //Add or remove cards 
 
+// let finalAddCard = document.getElementById("finalAddCard");
+// let cardInputPopup = document.getElementById("cardInputPopup");
+// let cardsection = document.getElementById("cardsection");
+// let cards = document.getElementById("cards");
+// let addCard = document.getElementById("addCard");
+
+// function openCardInput() {
+//     cardInputPopup.style.display = "block";
+//     addCard.style.display = "none";
+// }
+
+// addCard.addEventListener("click", openCardInput);
+
+// //lets now make and add card 
+
+// let finalAddCard = document.getElementById("finalAddCard");
+
+// function addCard() {
+
+//     let idItem = document.getElementById("itemId").value();
+//     let nameItem = document.getElementById("itemName").value();
+//     let descItem = document.getElementById("itemDesc").value();
+//     let imgItem = document.getElementById("itemPic").value();
+
+
+//     let card = document.createElement("div");
+//     let h2 = document.createElement("h2");
+//     let para = document.createElement("p");
+
+//     h2.textContent = nameItem;
+//     para.textContent = descItem;
+//     card.style.backgroundImage = imgItem
+
+//     card.appendChild(h2);
+//     card.appendChild(para);
+
+//     cards.appendChild(card);
+
+//     cardInputPopup.style.display = "none";
+//     addCard.style.display = "block";
+
+// }
+
+// finalAddCard.addEventListener("click", addCard);
+
 let finalAddCard = document.getElementById("finalAddCard");
 let cardInputPopup = document.getElementById("cardInputPopup");
-let cardsection = document.getElementById("cardsection");
 let cards = document.getElementById("cards");
 let addCard = document.getElementById("addCard");
 
+
+// Open card input popup
 function openCardInput() {
     cardInputPopup.style.display = "block";
     addCard.style.display = "none";
@@ -74,34 +147,36 @@ function openCardInput() {
 
 addCard.addEventListener("click", openCardInput);
 
-//lets now make and add card 
 
-let finalAddCard = document.getElementById("finalAddCard");
+// Create and add card
+function createCard() {
 
-function addCard() {
-
-    let idItem = document.getElementById("itemId").value();
-    let nameItem = document.getElementById("itemName").value();
-    let descItem = document.getElementById("itemDesc").value();
-    let imgItem = document.getElementById("itemPic").value();
+    let idItem = document.getElementById("itemId").value;
+    let nameItem = document.getElementById("itemName").value;
+    let descItem = document.getElementById("itemDesc").value;
+    let imgItem = document.getElementById("itemPic").value;
 
 
     let card = document.createElement("div");
     let h2 = document.createElement("h2");
     let para = document.createElement("p");
 
+
     h2.textContent = nameItem;
     para.textContent = descItem;
-    card.style.backgroundImage = imgItem
+
+    card.style.backgroundImage = `url("${imgItem}")`;
+
 
     card.appendChild(h2);
     card.appendChild(para);
 
     cards.appendChild(card);
 
+
     cardInputPopup.style.display = "none";
     addCard.style.display = "block";
-
 }
 
-finalAddCard.addEventListener("click", addCard);
+
+finalAddCard.addEventListener("click", createCard);

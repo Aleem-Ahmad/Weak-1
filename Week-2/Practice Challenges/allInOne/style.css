@@ -15,7 +15,7 @@
     display: flex;
     gap: 10px;
 }
-#lights #bulb{
+#lights .bulb{
     height: 8px;
     width: 8px;
     outline: 1px solid black;
@@ -218,3 +218,11 @@ header h2{
     border: none;
     margin-bottom: 10px;   
 }
+
+/* Designing the Card */
+
+#cards div{
+    height: 100px;
+    width: 100px;
+    color: aqua;
+} 

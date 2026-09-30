@@ -18,9 +18,9 @@
 <body>
 
     <span id="lights">
-        <span id="bulb"></span>
-        <span id="bulb"></span>
-        <span id="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
+        <span class="bulb"></span>
     </span>
 
     <header>
@@ -69,7 +69,14 @@
     <!-- card List add or remove cards mannualy -->
     <!-- also search box that gives results live  -->
 
+
     <section id="cardsection">
+        <div id="searchBoc">
+            <input id="search" type="text">
+            <button id="searchBtn">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkMjY5MWUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1zZWFyY2ggcHJldmlldy1pY29uIj48cGF0aCBkPSJtMjEgMjEtNC4zNC00LjM0Ii8+PGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOCIvPjwvc3ZnPg==" alt="searchButton">
+            </button>
+        </div>
         <div id="cards">
 
         </div>
@@ -80,8 +87,8 @@
                 <fieldset id="feildsetCardInput">
                     <legend>Wanna Adding card ??</legend>
 
-                    <label for="itemPic">Item Image : </label>
-                    <input id="itemPic" type="image"> <br>
+                    <label for="itemPic">Item Image URL: </label>
+                    <input id="itemPic" type="text"> <br>
 
                     <label for="itemId">Item ID: </label>
                     <input id="itemId" type="text"> <br>

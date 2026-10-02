@@ -1,4 +1,4 @@
-//Password Toogle Script
+//=====================Password Toogle Script=========================
 let passwordToogle = document.getElementById("passwordToogle")
 let pswd = document.getElementById("pswd");
 let tooglePswd = document.getElementById("tooglePswd");
@@ -18,65 +18,51 @@ function pswdToogle() {
 
 tooglePswd.addEventListener("click", pswdToogle);
 
-//POPUP made with plain js 
+//=================================POPUP made with plain js================================ 
 
 let loginBtn = document.getElementById("pswdBtn");
-
+let pswdContainer = document.getElementById("pswdContainer");
 // setInterval(function () {element.innerHTML += "Hello"}, 1000);
 
 function popupGen() {
+
+    pswdContainer.style.display = "none";
+
+    // Create a popup prent div and set its attributes and styles
     let popup = document.createElement("div");
+    popup.setAttribute("id", "popup");
+    popup.textContent = "Hurrrrraaahhhhh........! We Have Magically Made a Popup for you ! Its Made with Plain JS and CSS. It will Disappear in 5 Seconds !";
 
-    popup.classList.add("popup");
-
-    popup.textContent = "This is the Popup made with the plain Js ! Thanks for Login .. ";
-
-    popup.style.cssText = `
-    width: 50vw;
-    height: 25vh;
-    color: chocolate;
-    padding: 20px;
-    outline : 2px solid chocolate;
-    border-radius : 30px:
-    display : block;
-`;
-
+    // Create a timer element and set its initial value and styles
     let timer = document.createElement("span");
-
     let seconds = 5;
+    timer.textContent = ` (${seconds}s)`;
+    timer.style.color = "#ef4444";
+    timer.style.fontWeight = "bold";
+    timer.style.marginLeft = "8px";
 
-    timer.textContent = seconds;
-
-    setInterval(function () {
+    let interval = setInterval(function () {
         seconds--;
-
-        timer.textContent = seconds;
-
+        timer.textContent = seconds > 0 ? ` (${seconds}s)` : " (Done!)";
         if (seconds <= 0) {
             clearInterval(interval);
-            timer.textContent = "Done!";
         }
     }, 1000);
 
-//     timer.style.cssText = `
-//     width: 10vw;
-//     height: 10vh;
-//     color: black;
-//     padding: 20px;
-// `;
-
-    popup.appendChild(span);
-
+    popup.appendChild(timer);
     passwordToogle.appendChild(popup);
 
+    // Set a timeout to remove the popup after 5 seconds
     setTimeout(function () {
+        clearInterval(interval);
         popup.remove();
-    }, 5000)
+        pswdContainer.style.display = "flex";
+    }, 5000);
 }
 
 loginBtn.addEventListener("click", popupGen);
 
-//scroll triger Animation script
+//=======================scroll triger Animation script==============================
 
 let bulb = document.getElementById("bulb");
 
@@ -86,97 +72,328 @@ function animate() {
 
 window.addEventListener("scroll", animate);
 
-//Add or remove cards 
+//====================================================================================
+// ===========================Cards Section==============================================
+// ======================================================================================
 
-// let finalAddCard = document.getElementById("finalAddCard");
-// let cardInputPopup = document.getElementById("cardInputPopup");
-// let cardsection = document.getElementById("cardsection");
-// let cards = document.getElementById("cards");
-// let addCard = document.getElementById("addCard");
+// ================= Task List =================
 
-// function openCardInput() {
-//     cardInputPopup.style.display = "block";
-//     addCard.style.display = "none";
-// }
-
-// addCard.addEventListener("click", openCardInput);
-
-// //lets now make and add card 
-
-// let finalAddCard = document.getElementById("finalAddCard");
-
-// function addCard() {
-
-//     let idItem = document.getElementById("itemId").value();
-//     let nameItem = document.getElementById("itemName").value();
-//     let descItem = document.getElementById("itemDesc").value();
-//     let imgItem = document.getElementById("itemPic").value();
+let taskList = [];
 
 
-//     let card = document.createElement("div");
-//     let h2 = document.createElement("h2");
-//     let para = document.createElement("p");
-
-//     h2.textContent = nameItem;
-//     para.textContent = descItem;
-//     card.style.backgroundImage = imgItem
-
-//     card.appendChild(h2);
-//     card.appendChild(para);
-
-//     cards.appendChild(card);
-
-//     cardInputPopup.style.display = "none";
-//     addCard.style.display = "block";
-
-// }
-
-// finalAddCard.addEventListener("click", addCard);
+// ================= Elements =================
 
 let finalAddCard = document.getElementById("finalAddCard");
 let cardInputPopup = document.getElementById("cardInputPopup");
 let cards = document.getElementById("cards");
 let addCard = document.getElementById("addCard");
 
+let search = document.getElementById("search");
+let searchBtn = document.getElementById("searchBtn");
 
-// Open card input popup
+
+// ================= ID Generator =================
+
+let itemId = 0;
+
+
+// ================= Open Card Popup =================
+
 function openCardInput() {
+
     cardInputPopup.style.display = "block";
     addCard.style.display = "none";
+
+    // Generate ID
+    let idOfItem = `task-${++itemId}`;
+
+    // Put generated ID into input
+    document.getElementById("itemId").value = idOfItem;
 }
 
 addCard.addEventListener("click", openCardInput);
 
 
-// Create and add card
-function createCard() {
+// ================= Create Card =================
+
+function createCard(event) {
+
+    // Stop form from refreshing page
+    event.preventDefault();
+
+
+    // ================= Get Input Values =================
 
     let idItem = document.getElementById("itemId").value;
-    let nameItem = document.getElementById("itemName").value;
-    let descItem = document.getElementById("itemDesc").value;
-    let imgItem = document.getElementById("itemPic").value;
+    let nameItem = document.getElementById("itemName").value.trim();
+    let descItem = document.getElementById("itemDesc").value.trim();
+    let imgItem = document.getElementById("itemPic").value.trim();
 
+
+    // Don't create empty card
+    if (!nameItem) {
+        alert("Please enter an item name.");
+        return;
+    }
+
+
+    // ================= Create Task Object =================
+
+    let task = {
+        id: idItem,
+        name: nameItem,
+        description: descItem,
+        image: imgItem
+    };
+
+
+    // ================= Add Task To Array =================
+
+    taskList.push(task);
+
+
+    // ================= Create Card =================
 
     let card = document.createElement("div");
+
     let h2 = document.createElement("h2");
+
     let para = document.createElement("p");
 
+    let removeBtn = document.createElement("button");
+
+
+    // Give card its ID
+    card.setAttribute("id", idItem);
+
+    // Card dimensions layout
+    card.style.width = "280px";
+    card.style.minHeight = "260px";
+    card.style.display = "flex";
+    card.style.flexDirection = "column";
+
+    // Add background image
+    if (imgItem) {
+        card.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)), url("${imgItem}")`;
+        card.style.backgroundSize = "cover";
+        card.style.backgroundPosition = "center";
+    }
+
+    // ================= Card Content =================
 
     h2.textContent = nameItem;
     para.textContent = descItem;
+    removeBtn.textContent = "Remove Task";
 
-    card.style.backgroundImage = `url("${imgItem}")`;
 
+
+    // ================= Add Elements To Card =================
 
     card.appendChild(h2);
     card.appendChild(para);
+    card.appendChild(removeBtn);
+
+
+    // ================= Add Card To Page =================
 
     cards.appendChild(card);
 
 
+    // ================= Remove Card =================
+
+    removeBtn.addEventListener("click", function () {
+
+        // Remove from taskList
+        taskList = taskList.filter(function (task) {
+            return task.id !== idItem;
+        });
+
+
+        // Remove card from browser
+        card.remove();
+
+
+        console.log(taskList);
+    });
+
+
+    // ================= Close Popup =================
+
     cardInputPopup.style.display = "none";
+
     addCard.style.display = "block";
+
+
+    // ================= Clear Inputs =================
+
+    document.getElementById("itemId").value = "";
+    document.getElementById("itemName").value = "";
+    document.getElementById("itemDesc").value = "";
+    document.getElementById("itemPic").value = "";
+
+
+    console.log(taskList);
 }
 
 
+// ================= Add Card =================
+
 finalAddCard.addEventListener("click", createCard);
+
+
+// =====================================================
+// ================= SEARCH FUNCTION ====================
+// =====================================================
+
+function searchTasks() {
+
+    let searchValue = search.value.toLowerCase().trim();
+
+
+    // Get all cards
+    let allCards = cards.children;
+
+
+    for (let card of allCards) {
+
+        let task = taskList.find(function (task) {
+            return task.id === card.id;
+        });
+
+
+        if (!task) {
+            continue;
+        }
+
+
+        let taskName = task.name.toLowerCase();
+
+        let taskDescription = task.description.toLowerCase();
+
+
+        // Search name OR description
+        if (
+            taskName.includes(searchValue) ||
+            taskDescription.includes(searchValue)
+        ) {
+
+            card.style.display = "flex";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+    }
+}
+
+
+// Search while typing
+search.addEventListener("input", searchTasks);
+
+
+// Search button
+searchBtn.addEventListener("click", searchTasks);
+
+
+//====================Strings here =======================================
+
+// split, trim, replace, toLowerCase, toUpperCase
+
+let str = "InvexTech";
+
+let uprCaseStr = str.toUpperCase;
+console.log(uprCaseStr);
+
+let lwrCaseStr = str.toLowerCase;
+console.log(lwrCaseStr);
+
+// Property access might be a little unpredictable:
+
+// It makes strings look like arrays (but they are not)
+// If no character is found, [ ] returns undefined, while charAt() returns an empty string.
+// Propert access is read only, but str[0] = "A" gives no error in "sloppy mode".
+
+let newStr = new String("InvextTech Company");
+
+// Do not create String objects.
+// The new keyword complicates the code and slows down execution speed.
+// String objects can produce unexpected results:
+// there is big promblem in comparing primitivr and object string using == & ====
+// both == and === gives different output
+
+
+
+// String Templates
+// Template Strings
+// Template Literals
+// Beloved child has many names
+
+// templete strings allow single and double quotes in it without escape sequnence characters , 
+// these are made with  backticks 
+// and allow interploation of js and js expressions using ${}
+
+
+//=========================Strings usedd to make JS elements======================
+// <!DOCTYPE html>
+// <html>
+// <body>
+// <h1>JavaScript Template Strings</h1>
+
+// <p id="demo"></p>
+
+// <script>
+// let header = "Template Strings";
+// let tags = ["template strings", "javascript", "es6"];
+
+// let html = `<h2>${header}</h2><ul>`;
+
+// for (const x of tags) {
+//   html += `<li>${x}</li>`;
+// }
+
+// html += `</ul>`;
+// document.getElementById("demo").innerHTML = html;
+// </script>
+
+// </body>
+// </html>
+
+// =================String Methods=========================
+
+// trip() -> removes white spaces from both the the start aand end of the string 
+// there are also trimStart() and trimEnd()
+
+//padStart() and padEnd() --> padStart(4 , "X")
+// toString() method converts numbers to string Data type (used to pad a number)
+
+// The repeat() method returns a string with a number of copies of a string.
+// The repeat() method returns a new string.
+// The repeat() method does not change the original string.
+//repaet(n)
+
+// The replace() method replaces a specified value with another value in a string:
+// let text = "Please visit Microsoft!";
+// let newText = text.replace("Microsoft", "InvexTech");
+// The replace() method does not change the string it is called on.
+// The replace() method returns a new string.
+// The replace() method replaces only the first match
+// If you want to replace all matches, use a regular expression with the /g flag set. See examples below.
+//replace() metho is case sensitive
+
+// To replace case insensitive, use a regular expression with an /i flag (insensitive):
+// let text = "Please visit Microsoft!";
+// let newText = text.replace(/MICROSOFT/i, "W3Schools");
+
+// Regular expressions are written without quotes.
+// To replace all matches, use a regular expression with a /g flag (global match):
+// let text = "Please visit Microsoft and Microsoft!";
+// let newText = text.replace(/Microsoft/g, "W3Schools");
+
+
+// text = text.replaceAll("Cats","Dogs");
+// text = text.replaceAll("cats","dogs");
+// The replaceAll() method allows you to specify a regular expression instead of a string to be replaced.
+// If the parameter is a regular expression, the global flag (g) must be set, otherwise a TypeError is thrown.
+// not supported by INternetExplorer
+

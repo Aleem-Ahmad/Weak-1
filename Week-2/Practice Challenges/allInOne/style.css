@@ -1,228 +1,680 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #d97706;
+    --primary-hover: #b45309;
+    --primary-light: #fef3c7;
+    --accent: #ea580c;
+    --bg-main: #fffcf8;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --bg-section: #fef8f3;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #f3d5b5;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --shadow-sm: 0 2px 8px rgba(217, 119, 6, 0.08);
+    --shadow-md: 0 10px 25px -5px rgba(217, 119, 6, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 20px 35px -10px rgba(194, 65, 12, 0.18);
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* header and main css */
+html {
+    scroll-behavior: smooth;
+}
 
-/* scroll triger animation */
-#lights {
-    position: fixed;
-    right: 10px;
-    top: 10px;
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ================== Navbar CSS ======================== */
+
+#navbar {
+    max-width: 1200px;
+    margin: 15px auto 30px;
+    padding: 12px 28px;
+    width: calc(100% - 30px);
 
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    position: sticky;
+    top: 15px;
+    z-index: 1000;
+    background: rgba(217, 119, 6, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
 }
-#lights .bulb{
-    height: 8px;
-    width: 8px;
-    outline: 1px solid black;
+
+/* ================== Navbar Heading ======================== */
+
+#navHeading {
+    cursor: pointer;
+    padding: 6px 12px;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-sm);
+    transition: all 0.25s ease;
+}
+
+#navHeading:hover {
+    color: #fef08a;
+    transform: translateY(-2px);
+}
+
+/* ================== Navigation List ======================== */
+
+#navList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+
+#navList li,
+#navList .nav-link {
+    list-style: none;
+}
+
+#navList a {
+    display: block;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+#navList a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* ================== Theme Select & Controls ======================== */
+
+#themeSelector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+#themeSelect {
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius-md);
+    outline: none;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+#themeSelect:hover {
+    background: #ffffff;
+    transform: scale(1.04);
+}
+
+#themeSelect:focus {
+    box-shadow: 0 0 0 3px rgba(254, 240, 138, 0.6);
+}
+
+#favColor {
+    width: 36px;
+    height: 36px;
+    padding: 2px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
     border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+#favColor:hover {
+    transform: scale(1.15) rotate(15deg);
+}
+
+#navbar #lights {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+#navbar .bulb,
+#navbar #lights span {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    animation: bulbGlow 2s infinite ease-in-out;
+}
+
+#navbar .bulb:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+#navbar .bulb:nth-child(3) {
+    animation-delay: 0.8s;
 }
 
 @keyframes bulbGlow {
-
     0%, 100% {
-        background-color: red;
-        box-shadow: 0 0 5px red;
+        background-color: #ef4444;
+        box-shadow: 0 0 8px #ef4444;
     }
-
-    25% {
-        background-color: yellow;
-        box-shadow: 0 0 10px yellow;
+    33% {
+        background-color: #eab308;
+        box-shadow: 0 0 8px #eab308;
     }
-
-    50% {
-        background-color: lime;
-        box-shadow: 0 0 10px lime;
-    }
-
-    75% {
-        background-color: cyan;
-        box-shadow: 0 0 10px cyan;
+    66% {
+        background-color: #22c55e;
+        box-shadow: 0 0 8px #22c55e;
     }
 }
 
-/* HeroPage or1st Oage Styles */
-header{
-    margin-top: 10vh;
-    font-size: 60px;
+/* ================= Hero / Header Section ================= */
+
+header {
+    max-width: 1000px;
+    margin: 40px auto 20px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+header h2 {
+    font-family: var(--font-heading);
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -1px;
+}
+
+#headerContent {
+    background: linear-gradient(135deg, #ea580c 0%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ================= Main Task Checklist ================= */
+
+main {
+    max-width: 850px;
+    margin: 30px auto 60px;
+    padding: 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+main .main-item,
+main #main {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    border: 1px solid #fed7aa;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+main .main-item:hover,
+main #main:hover {
+    transform: translateX(6px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+main input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s ease;
+}
+
+main input[type="checkbox"]::before {
+    content: "✓";
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    transform: scale(0);
+    transition: transform 0.2s ease;
+}
+
+main input[type="checkbox"]:checked {
+    background-color: var(--primary);
+}
+
+main input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+main h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* ================= Password Toggle Section ================= */
+
+#passwordToogle {
+    background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-section) 100%);
+    padding: 80px 20px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+}
+
+#pswdContainer {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid #fed7aa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 550px;
+    width: 100%;
+}
+
+#pswdLabel {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
     text-align: center;
 }
-main{
-    height: calc(100vh - 100px);
-    width: 100vw;
-}
-main pre{
-    text-decoration: dashed;
-    font-size: 32px;
-    margin-top: 7vh;
-}
 
-header h2{
-    font-weight: bolder;
-}
-
-#headerContent{
-    color: chocolate;
-    
-}
-
-/* rest of CSS baaaad ma  */
-
-
-/* yaha sa password toogle k liey styles */
-#passwordToogle{
+#pswdInput {
+    height: 56px;
+    width: 100%;
+    border: 2px solid #fdba74;
+    border-radius: var(--radius-md);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 5px; 
-    height: 100vh;
-    width: 100vw;
-    outline: 2px sold chocolate;
-      
+    padding: 0 16px;
+    background: #fff8f1;
+    transition: all 0.25s ease;
 }
-#pswdLabel{
-    font-weight: bold;
-    color: chocolate;
+
+#pswdInput:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.2);
+    background: #ffffff;
 }
-#pswdInput{
-    font-size: 32px;
-    height: 40px;
-    width: 350px;
-    outline: 2px solid chocolate;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#pswd{
-    background-color: none;
-    height: 85%;
-    width: 75%;
+
+#pswd {
+    font-size: 18px;
+    background: transparent;
+    height: 100%;
+    width: 100%;
     outline: none;
     border: none;
-    padding: 3px;
-    font-weight: bold;
-    color: chocolate;
+    font-weight: 600;
+    color: var(--text-dark);
 }
-#tooglePswd{
+
+#tooglePswd {
     cursor: pointer;
-    background-color: white;
+    background: transparent;
     border: none;
-    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background 0.2s ease;
 }
 
+#tooglePswd:hover {
+    background: rgba(234, 88, 12, 0.1);
+}
 
-#pswdBtn{
+#toogleIcon {
+    width: 22px;
+    height: 22px;
+}
+
+#pswdBtn {
+    margin-top: 10px;
     cursor: pointer;
-    display: flex;
-    gap: 5px;
-    background-color: chocolate;
-    height: 38px;
-    width: 200px;
-    outline: none;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+    height: 52px;
+    width: 100%;
     border: none;
-    border-radius: 20px;
-}
-
-#unlockTxt{
-    color: white;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-}
-
-/* add card section */
-
-#cardsection{
-
+    border-radius: var(--radius-md);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: var(--shadow-md);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: antiquewhite;
-    width: 100vw;
-    height: 100vh;
-}
-
-#cards{
-    display: flex;
+    justify-content: center;
     gap: 10px;
-    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+#pswdBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px -5px rgba(234, 88, 12, 0.35);
+}
+
+/* Magic Popup Dynamic Container */
+#popup {
+    font-family: var(--font-body);
+    font-size: 20px !important;
+    font-weight: 600;
+    text-align: center;
+    max-width: 600px;
+    width: 90% !important;
+    height: auto !important;
+    background: #ffffff !important;
+    border: 2px solid var(--accent) !important;
+    border-radius: var(--radius-lg) !important;
+    color: var(--accent) !important;
+    padding: 30px !important;
+    box-shadow: var(--shadow-lg) !important;
+    animation: popupFade 0.3s ease-out;
+}
+
+@keyframes popupFade {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ================= Card Task Manager Section ================= */
+
+#cardsection {
+    background: var(--bg-main);
+    padding: 80px 20px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+#searchBox {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 2px solid #fdba74;
+    border-radius: 30px;
+    padding: 6px 18px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+}
+
+#searchBox:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+}
+
+#search {
+    color: var(--text-dark);
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+#searchBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+#searchIcon {
+    height: 22px;
+    width: 22px;
+}
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 100px;
+}
+
+/* Individual Dynamically Created Cards */
+#cards > div {
+    background: #ffffff;
+    border: 1px solid #fed7aa;
+    border-radius: var(--radius-lg) !important;
+    padding: 24px !important;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+#cards > div:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+#cards > div h2 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+#cards > div p {
+    font-size: 15px;
+    color: var(--text-muted);
+    flex-grow: 1;
+    margin-bottom: 16px;
+}
+
+#cards > div button {
+    margin-top: auto !important;
+    background: #ef4444 !important;
+    color: #ffffff !important;
+    height: 42px !important;
+    width: 100% !important;
+    border-radius: var(--radius-md) !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.25) !important;
+    transition: all 0.2s ease !important;
+}
+
+#cards > div button:hover {
+    background: #dc2626 !important;
+    transform: translateY(-1px) !important;
 }
 
 #addCard {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    padding: 14px 32px;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    box-shadow: var(--shadow-md);
+    transition: all 0.25s ease;
+}
+
+#addCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -5px rgba(217, 119, 6, 0.4);
+}
+
+/* Card Input Form / Popup */
+#cardInputPopup {
+    max-width: 500px;
+    width: 100%;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid #fed7aa;
+}
+
+#feildsetCardInput {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border: 1px solid #fed7aa;
+    border-radius: var(--radius-md);
+    padding: 24px;
+    outline: none;
+}
+
+#feildsetCardInput legend {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    padding: 0 10px;
+}
+
+#feildsetCardInput label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+#feildsetCardInput input {
+    color: var(--text-dark);
+    border: 1.5px solid #fdba74;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 15px;
+    outline: none;
+    width: 100% !important;
+    height: auto !important;
+    transition: border-color 0.2s ease;
+}
+
+#feildsetCardInput input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+}
+
+#finalAddCard {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    color: #ffffff;
+    background: var(--accent);
+    height: 46px !important;
+    width: 100% !important;
+    border-radius: var(--radius-md) !important;
+    outline: none;
+    border: none;
     margin-top: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    color: white;
-    background-color: chocolate;
-    /* position: fixed; */
-    height: 8vh;
-    width: 13vw;
-    bottom: 10px;
-    left: 50%;
-    border-radius: 20px;
-    outline: none;
-    border: none;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
 }
 
-#cardInputPopup{
-    height: auto;
-    width: 40vw;
-    margin-top: 30px ;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
+#finalAddCard:hover {
+    background: #c2410c;
+    transform: translateY(-2px);
 }
 
-#cardInputPopup label{
-    color: chocolate;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 16px;
+    }
+    
+    header h2 {
+        font-size: 36px;
+    }
+    
+    main {
+        padding: 16px;
+    }
+    
+    #pswdContainer {
+        padding: 24px;
+    }
 }
 
-#cardInputPopup input{
-    color: chocolate;
-    outline: 2px chocolate;
-    border-radius: 20px;
-    border: none;
-    height: 30px;
-    width: 200px;
-}
 
-#feildsetCardInput{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px 10px 50px 10px;
-    outline: 2px dotted chocolate;
-    border: none;
-}
 
-#finalAddCard{
-    cursor: pointer;
-    font-weight: bold;
-    color: white;
-    background-color: chocolate;
-    height: 6vh;
-    width: 10vw;
-    border-radius: 20px;
-    outline: none;
-    border: none;
-    margin-bottom: 10px;   
-}
-
-/* Designing the Card */
-
-#cards div{
-    height: 100px;
-    width: 100px;
-    color: aqua;
-} 

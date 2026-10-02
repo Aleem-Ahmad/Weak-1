@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url("https://images.search.yahoo.com/search/images;_ylt=A2RTvNox3rxqIIgAGtOJzbkF;_ylu=Y29sbwNhcC1zb3V0aGVhc3QtMQRwb3MDNgR2dGlkAwRzZWMDc3I-?fr=mcafee&p=pic+of+sunflower&imgurl=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2375041.jpg")
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h2 {
+    font-weight: bolder;
+    color: brown;
+}
+
+p {
+    color: orangered;
+    text-decoration: wavy;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.weather-info{
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 400px;
+    height: 60px;
+    outline: 2px rgb(0, 0, 0) solid;
+    border-radius: 30px;
+}
+
+@keyframes myAnimation {
+   0%   {background-color:rgb(253, 118, 118); left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:rgb(112, 112, 241); left:200px; top:200px;}
+  75%  {background-color:rgb(36, 199, 36); left:0px; top:200px;}
+  100% {background-color:rgb(11, 61, 102); left:0px; top:0px;}
+}
+/* 
+regular likhyn to esy
+div {
+  animation-name: myAnimation;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+ shortHAnd
+div{
+    animation: animationNAme duration tFunction delay iterationCount direction fillMode playState;
+    ADTDIDFP -> animation-name duration timing-function delay iteration-count direction fill-mode play-state;
+} */
+
+#city {
+    
+    color: white;
+    font-weight: bold;
+    background-color: lightblue;
+    animation-name: myAnimation;
+    animation-duration: 4s;
+     animation-delay: 5s;
+     animation-iteration-count: infinite;
+     aniumation-direction: alternate;
+     animation-fill-mode: forwards;
+     /* animation-play-state: running; */
+     /* animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); */
+     animation-fill-mode: both;
+}
+
+#city:hover {
+    color: white;
+    background-color: brown;
+}
+
+#city:focus {
+    color: white;
+    background-color: brown;
+}
+
+#city:active {
+    color: white;
+    background-color: brown;
+}
+
+#temp {
+    color: lightblue;
+    background-color: brown;
+    animation-name: myAnimation;
+    animation-duration: 4s; 
+}
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    main {
+        gap: 25px;
+        padding: 15px;
+    }
+
+    .weather-info {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        min-height: 60px;
+        padding: 18px;
+        gap: 15px;
+    }
+
+    #city,
+    #temp {
+        max-width: 100%;
+        font-size: 1rem;
+    }
+}
+
+
+/* chalo responssive karna seekheyn 
+sirf itna likhna ha ka
+@media (max-width: jitni b zada sa zada device ki width ho jasa phone etc) { 
+ yaha par ab responssive css likho accordingly (device width k hissab sa
+} */
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px 10px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.85rem;
+    }
+
+    main {
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .weather-info {
+        width: 95%;
+        padding: 15px;
+        gap: 12px;
+        border-radius: 20px;
+    }
+
+    #city,
+    #temp {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+}
+
+/* Simple animation */
+
+/* chalo animation seekhyn or bmnayn  */
+
+/* @keyframes myAnimation {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+/* The element to apply the animation to */
+/* div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: myAnimation;
+  animation-duration: 4s;
+} */
+
+
+
+/* bs likho @keyframes animationName { from { property: value; } to { property: value; } }   */
+

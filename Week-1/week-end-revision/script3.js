@@ -42,7 +42,7 @@
 
 {
     function smallestNum(arr) {
-        let smallesrNumber = arr[0];
+        let smallesrNumber = Infinity;
         arr.forEach((elem) => {
             if (elem < smallesrNumber) {
                 smallesrNumber = elem;
@@ -118,7 +118,7 @@
         })
 
         let maxKey = null;
-        let maxCaaount = 0;
+        let maxCaaount = -Infinity;
         for (key in res) {
             if (res[key] > maxCaaount) {
                 maxCaaount = res[key];
@@ -344,7 +344,7 @@
     function longestWord(str) {
         let arrOfStr = str.split(" ");
         let maxLenWord = null;
-        let maxLen = 0;
+        let maxLen = -Infinity;
         arrOfStr.forEach(elem => {
             let elemLen = elem.length;
             if (elemLen > maxLen) {
@@ -588,3 +588,29 @@ function thirdLargestNum(arr) {
 
 console.log(thirdLargestNum([10, 40, 20, 50, 30]));
 // 30
+
+//returns the even digit element
+
+{
+    function returnEvenDigits(arr) {
+
+        let evenDigits = [];
+
+        arr.forEach(elem => {
+
+            let num = String(elem);
+
+            let len = num.length;
+
+            if (len % 2 === 0) {
+
+                evenDigits.push(elem);
+            }
+
+        });
+
+        return evenDigits;
+    }
+
+    console.log(returnEvenDigits([1, 134, 1234, 123, 24]));
+}

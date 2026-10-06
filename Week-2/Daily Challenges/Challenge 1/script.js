@@ -9,6 +9,7 @@ sortByValue = (items) => {
     for (let i = 0; i < len - 1; i++) {
         for (let j = i + 1; j < len; j++) {
             if (items[i].value > items[j].value) {
+                //simple swap logic NO rocket Science
                 const temp = items[i];
                 items[i] = items[j];
                 items[j] = temp;

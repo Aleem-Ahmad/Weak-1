@@ -43,7 +43,18 @@
 // }
 
     
-    let date = new Date;
-    console.log(date);
+    // let date = new Date;
+    // console.log(date);
 
-    console.log(date.getHours);
+    // console.log(date.getHours);
+
+// ===================================================================================================
+
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector("header nav");
+
+menuBtn.addEventListener("click", () => {
+
+    nav.classList.toggle("show");
+
+});

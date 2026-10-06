@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::selection{
+    color: purple;
+    background-color: black;
+}
+#head{
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    outline: 2px solid purple;
+    border-radius: 20px;
+    display: flex;
+    font-size: 23px;
+    justify-content: center;
+    align-items: center;
+}
+#head-left {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+#nav{
+    display: flex;
+    gap: 20px;
+}
+
+#nav a{
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    height: 30px;
+    width: 80px;
+    color: purple;
+    text-decoration: none;
+    
+
+}
+
+#nav a:hover{
+    color: white;
+    background-color: purple;
+    transform: scale(1.2);
+    transition: transform 0.4sec ease-in-out;
+    border-radius: 7px;
+}
+#heading::before {
+    content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4MDAwODAiIHN0cm9rZS13aWR0aD0iMi41NzE0Mjg1NzE0Mjg1NzE2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXphcCBwcmV2aWV3LWljb24iPjxwYXRoIGQ9Ik0xNS45MTQgNGExLjUgMS41IDAgMDAtMi40NzQtMS41NjFsLTkgOUExLjUgMS41IDAgMDA1LjUgMTRoNC4wMDJhLjUuNSAwIDAxLjQ3MS42NjZMOC4wODYgMjBhMS41IDEuNSAwIDAwMi40NzUgMS41Nmw5LTlBMS41IDEuNSAwIDAwMTguNSAxMGgtMy45OTdhLjUuNSAwIDAxLS40NzItLjY2N3oiLz48L3N2Zz4=");
+}
+
+
+#haeding {
+    
+    font-weight: bolder;
+}
+
+#heading #heading-portion {
+    color: purple;
+}
+
+#home{
+    font-size: 20px;
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#leftHome{
+    height: 50%;
+    width: 50%;
+}
+#rightHome{
+    text-align: justify;
+    height: 50%;
+    width: 50%;
+}
+#rightHome p{
+    text-align: justify;
+}
+
+#rightHome img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    outline: 2px solid purple;
+    animation: hover 2sec ease-in-out ;
+}
+@keyframes hover{
+    0%{
+        outline: 2px solid red;
+        transform: translateY(20px);
+    }
+    100%{
+        outline: 2px solid purple;
+        transform: translateY(40px);
+        
+    }
+}
+#rightHome img:hover{
+    cursor: pointer;
+    transform: scale(1.01);    
+}
+
+#cards{
+    display: grid;
+}
+
+#card{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+}
+
+#card img{
+    height: 100%;
+    width: 100%;
+}
+#card h4{
+    color: purple;
+}
+
+#card p{
+    color: red;
+}

@@ -45,7 +45,7 @@
 // -> closure ya kahta ha k lexical scopee thik ha lekin agar ik outer function koi chiz bnata ha
 // or inner function usko use kar k update karta ha or inCase Outer function terminte karta to still
 // inner function k ps wo variable ha
-// -> like outer ik factory or inner ik worker , oter chala ik chiz bni worker na rakh li
+// -> like outer ik factory or inner ik worker , outer chala ik chiz bni worker na rakh li
 // ab factory band b ha to worker k ps wo chiz accessible ha
 // -> function outer(){
 // -> let x=1;

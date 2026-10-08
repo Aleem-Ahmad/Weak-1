@@ -9,3 +9,8 @@ let myMap = (arr, fnc) => {
 }
 
 console.log(myMap([1, 2, 3], (x => x + 2)));
+
+/**
+    sara kamal ha is line ka res.push(fnc(arr[i]));
+    
+ */

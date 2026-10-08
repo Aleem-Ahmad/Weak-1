@@ -15,3 +15,8 @@ function groupShared(arr){
 }
 
 console.log(groupShared([{name:"Ali",dept:"Sales"},{name:"Sara",dept:"Tech"}]))
+
+/*
+    sara kamal ha is line ka [arr[key].dept] : arr[key].name
+    [arr[key].dept ka matlab huwa ma ik key bna raha hn baqi to simple ha]
+*/

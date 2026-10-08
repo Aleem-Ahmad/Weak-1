@@ -14,3 +14,13 @@ function deepClone(obj) {
 
     return res;
 }
+
+/*
+    axha bat simple hi ha 
+    obj ki keys ko ik ik kar k new obj ma store krty jao 
+    res[key] ka mtlab huwa key and obj[key] ka mtlab huwa value
+    lekin still nested objects ka masla 
+    to dekho k agar ob[key] ki type object ha to bhai recusrsive ki madad lo if else lgao
+    if type is obj to chala do phir sa function or agar type object nahi to simple wali logic else ,a lga do
+     
+*/
